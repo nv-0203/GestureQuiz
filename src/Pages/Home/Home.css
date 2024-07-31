@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.settings {
+    width: 45%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.banner {
+    width: 55%;
+    align-self: center;
+    padding: 8px;
+}
+
+@media (max-width: 800px) {
+    .content {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .banner {
+        width: 85%;
+        padding: 0;
+        padding-top: 20px;
+    }
+
+    .settings {
+        width: 100%;
+    }
+}
+
+.settings__select {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+    flex: 0.8;
+    justify-content: space-evenly;
+}
+
+.MuiTextField-root {
+    margin-bottom: 25px;
+}
+
+.MuiButton-root {
+    margin-top: 15px;
+}
+
+.instructions {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: 45%;
+}
+
+.instructions h1 {
+    text-align: center;
+    color: #333;
+}
+
+.instructions h2 {
+    color: #444;
+}
+
+.instructions ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.instructions ul li {
+    margin: 10px 0;
+}
+
+.instructions ul li ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.ErrorMessage {
+    color: red;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 800px) {
+    .instructions {
+        width: 90%;
+    }
+}
