@@ -4,7 +4,6 @@ const One = new GestureDescription('one');
 const Two = new GestureDescription('two');
 const Three = new GestureDescription('three');
 const Four = new GestureDescription('four');
-// Define finger positions for each gesture
 
 // One finger (index finger up)
 One.addCurl(Finger.Index, FingerCurl.NoCurl, 1.0);

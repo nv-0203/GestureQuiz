@@ -1,4 +1,4 @@
-import { CircularProgress, Typography, Box } from '@mui/material';
+import { CircularProgress, Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 import Question from '../../components/Question/Question';
 import './Quiz.css';
@@ -73,6 +73,7 @@ const Quiz = ({ name, questions, score, setScore, setQuestions }) => {
                     <div className="quizInfo">
                         <span>Category: {questions[currQues - 1].category}</span>
                         <span>Difficulty: {questions[currQues - 1].difficulty}</span>
+                        <span>Number of Questions : {questions.length}</span>
                         <span>Score : {score}</span>
                     </div>
                     <Question
@@ -94,15 +95,15 @@ const Quiz = ({ name, questions, score, setScore, setQuestions }) => {
                     flexDirection="column"
                     alignItems="center"
                     justifyContent="center"
-                    marginTop={15}
+                    marginTop={20}
                 >
-                    <CircularProgress color="inherit" size={150} thickness={1} />
-                    <Typography variant="h6" component="div" style={{ marginTop: 20 }}>
-                        HandPose Model is Loading...
-                    </Typography>
-                    <Typography variant="body1" component="div" style={{ marginTop: 10 }}>
-                        This will take a few moments, thank you for your patience.
-                    </Typography>
+                    <div className="loadingSpinner">
+                        <CircularProgress color="inherit" size={150} thickness={1} />
+                    </div>
+                    <div className="loadingMessage">
+                        <h3> HandPose Model is Loading...</h3>
+                        <h4> This will take a few moments, thank you for your patience. </h4>
+                    </div>
                 </Box>
             )}
         </div>

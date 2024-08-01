@@ -19,3 +19,11 @@
     text-transform: uppercase;
     margin: 10px;
 }
+
+.loadingMessage{
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}

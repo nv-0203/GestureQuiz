@@ -8,11 +8,13 @@ body {
 .content {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     padding: 20px;
 }
 
 .settings {
-    width: 45%;
+    width: 35%;
+    height: 50%;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -24,44 +26,17 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.banner {
-    width: 55%;
-    align-self: center;
-    padding: 8px;
-}
-
-@media (max-width: 800px) {
-    .content {
-        flex-direction: column-reverse;
-        align-items: center;
-    }
-
-    .banner {
-        width: 85%;
-        padding: 0;
-        padding-top: 20px;
-    }
-
-    .settings {
-        width: 100%;
-    }
-}
-
 .settings__select {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px;
     width: 100%;
     flex: 0.8;
     justify-content: space-evenly;
 }
 
 .MuiTextField-root {
-    margin-bottom: 25px;
-}
-
-.MuiButton-root {
-    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 .instructions {
@@ -70,7 +45,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 10px;
-    width: 45%;
+    width: 55%;
 }
 
 .instructions h1 {
@@ -79,6 +54,7 @@ body {
 }
 
 .instructions h2 {
+    text-align: center;
     color: #444;
 }
 
@@ -102,6 +78,15 @@ body {
 }
 
 @media (max-width: 800px) {
+    .content {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .settings {
+        width: 100%;
+    }
+
     .instructions {
         width: 90%;
     }

@@ -8,17 +8,18 @@ import './Home.css';
 const Home = ({ name, setName, fetchQuestions }) => {
     const [category, setCategory] = useState("");
     const [difficulty, setDifficulty] = useState("");
+    const [numQuestions, setNumQuestions] = useState(undefined);
     const [error, setError] = useState(false);
 
     const navigate = useNavigate();
 
     const handleSubmit = () => {
-        if (!category || !difficulty || !name) {
+        if (!category || !difficulty || !name || numQuestions==undefined) {
             setError(true);
             return;
         } else {
             setError(false);
-            fetchQuestions(category, difficulty);
+            fetchQuestions(category, difficulty, numQuestions);
             navigate('/quiz');
         }
     };
@@ -41,7 +42,7 @@ const Home = ({ name, setName, fetchQuestions }) => {
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}
                         variant="outlined"
-                        style={{ marginBottom: 30 }}
+                        style={{ marginBottom: 20 }}
                     >
                         {Categories.map((cat) => (
                             <MenuItem key={cat.category} value={cat.value}>
@@ -50,12 +51,21 @@ const Home = ({ name, setName, fetchQuestions }) => {
                         ))}
                     </TextField>
                     <TextField
+                        label="Number of Questions"
+                        type="number"
+                        inputProps={{ min: 1, max: 50 }}
+                        value={numQuestions}
+                        onChange={(e) => setNumQuestions(e.target.value)}
+                        variant="outlined"
+                        style={{ marginBottom: 20 }}
+                    />
+                    <TextField
                         select
                         label="Select Difficulty"
                         value={difficulty}
                         onChange={(e) => setDifficulty(e.target.value)}
                         variant="outlined"
-                        style={{ marginBottom: 30 }}
+                        style={{ marginBottom: 20 }}
                     >
                         <MenuItem key="Easy" value="easy">
                             Easy
@@ -84,6 +94,7 @@ const Home = ({ name, setName, fetchQuestions }) => {
                 <ul>
                     <li><strong>Start the Quiz:</strong>
                         <ul>
+                            <li>Fill in the relevant details</li>
                             <li>Click on the "Start Quiz" button to begin the quiz.</li>
                         </ul>
                     </li>

@@ -13,9 +13,11 @@ function App() {
   const [name, setName] = useState();
   const [score, setScore] = useState(0);
 
-  const fetchQuestions = async (category = "", difficulty = "") => {
+  const fetchQuestions = async (category = "", difficulty = "", numQuestions = undefined) => {
     const { data } = await axios.get(
-      `https://opentdb.com/api.php?amount=10${
+      `https://opentdb.com/api.php?${
+        numQuestions != undefined && `amount=${numQuestions}`
+      }${
         category && `&category=${category}`
       }${difficulty && `&difficulty=${difficulty}`}&type=multiple`
     );

@@ -42,8 +42,8 @@ const Question = ({
 
     const handleNext = () => {
         clearInterval(timerRef.current);
-        
-        if (currQues > 9) {
+
+        if (currQues == questions.length) {
             navigate('/result');
         } else {
             setTimeLeft(15);

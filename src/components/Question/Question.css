@@ -28,10 +28,8 @@
     border-radius: 5px;
     max-width: 100%;
     width: 100%;
-    /* Add this to ensure the video takes the full width of the container */
     height: auto;
-    /* Maintain aspect ratio */
-    margin-top: 80px;
+    margin-top: 95px;
 }
 
 .options {
@@ -59,6 +57,10 @@
 @media (max-width: 614px) {
     .singleOption {
         width: 100%;
+    }
+
+    .main-container{
+        flex-direction: column;
     }
 }
 
