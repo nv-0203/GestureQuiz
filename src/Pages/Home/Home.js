@@ -1,26 +1,34 @@
-import { Button, MenuItem, TextField, Typography } from '@mui/material';
+import { Button, MenuItem, TextField } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import Categories from '../../Data/Categories';
 import './Home.css';
 
-const Home = ({ name, setName, fetchQuestions }) => {
+const Home = ({ name, setName, fetchQuestions, setScore }) => {
     const [category, setCategory] = useState("");
     const [difficulty, setDifficulty] = useState("");
-    const [numQuestions, setNumQuestions] = useState(undefined);
+    const [numQuestions, setNumQuestions] = useState("");
     const [error, setError] = useState(false);
 
     const navigate = useNavigate();
 
     const handleSubmit = () => {
-        if (!category || !difficulty || !name || numQuestions==undefined) {
+        if (!category || !difficulty || !name || !numQuestions) {
             setError(true);
             return;
         } else {
+            setScore(0);
             setError(false);
             fetchQuestions(category, difficulty, numQuestions);
             navigate('/quiz');
+        }
+    };
+
+    const handleNumQuestionsChange = (e) => {
+        const value = e.target.value;
+        if (value === '' || (value >= 1 && value <= 50)) {
+            setNumQuestions(value);
         }
     };
 
@@ -55,7 +63,7 @@ const Home = ({ name, setName, fetchQuestions }) => {
                         type="number"
                         inputProps={{ min: 1, max: 50 }}
                         value={numQuestions}
-                        onChange={(e) => setNumQuestions(e.target.value)}
+                        onChange={handleNumQuestionsChange}
                         variant="outlined"
                         style={{ marginBottom: 20 }}
                     />
